@@ -2,7 +2,6 @@ import os
 import pickle
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 
@@ -21,7 +20,6 @@ def build_youtube_client():
         print("Loading Credentials From File....")
         with open("token.pickle", "rb") as token:
             credentials = pickle.load(token)
-            # credentials = Credentials.from_authorized_user_file("token.json")
 
     if not credentials or not credentials.valid:
         if credentials and credentials.expired and credentials.refresh_token:
@@ -70,6 +68,7 @@ def get_playlist_id(playlist_url):
 
 
 
+
 #Function to match playlist with keywords
 def get_matching_videos(playlist_id, keywords):
     youtube = build_youtube_client()
@@ -78,10 +77,12 @@ def get_matching_videos(playlist_id, keywords):
     try:
         next_page_token = None
         while True:
-            request = youtube.playlistItems().list(part="snippet,contentDetails",
-                                                   maxResults=30, #change accordingly
-                                                   playlistId=playlist_id,
-                                                   pageToken=next_page_token)
+            request = youtube.playlistItems().list(
+                part="snippet,contentDetails",
+                maxResults=30,                          # change accordingly
+                playlistId=playlist_id,
+                pageToken=next_page_token
+            )
 
             response = request.execute()
 
@@ -109,7 +110,8 @@ def get_matching_videos(playlist_id, keywords):
     return video_data
 
 
-#Function that checks if video already exists in the playlist
+
+#Function that checks if video already in the playlist
 def video_exists(youtube,your_playlist_id,video_id):
     try:
         playlist_items = youtube.playlistItems().list(
@@ -139,7 +141,7 @@ def add_videos_to_playlist(your_playlist_id, video_data):
                         # "position": 0,
                         "resourceId": {
                             "kind": "youtube#video",
-                            "videoId": video["id"] # change
+                            "videoId": video["id"] 
                         }
                     }
                 })
@@ -163,7 +165,7 @@ def main():
     playlist_url = input("Enter the YouTube playlist URL: ")
     channel_playlist_id = get_playlist_id(playlist_url=playlist_url)
 
-    your_playlist_url = input("Enter Your private YouTube playlist URL: ")
+    your_playlist_url = input("Enter Your Personal Unlisted YouTube playlist URL: ")
     personal_playlist_id = get_playlist_id(playlist_url=your_playlist_url)
 
     keyword = list(input("Enter the keyword you want to search for in the video titles and descriptions: ")) 

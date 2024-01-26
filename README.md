@@ -25,6 +25,11 @@ API v3. Click into the listing for that API and make sure the API is enabled for
 
   * Download the JSON file that contains your OAuth 2.0 credentials and rename it as `credentials.json`.
   Move the file to this repository.
+
+## Note
+  * OAuth Consent screen might require additional permissions and the redirect URI, which can be added in the appropriate Client ID
+   details.
+
 ## Run 
 
 Once the credentials.json is in path, Run `python3 main.py`

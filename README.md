@@ -1,4 +1,4 @@
-# youtube-auto-playlist
+# AutoPlaylister
 This script automates adding videos to a personal playlist by matching keywords in the original playlist.
 
 ## Installing Dependencies

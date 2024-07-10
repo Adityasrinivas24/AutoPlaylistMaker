@@ -2,8 +2,8 @@
 This script automates adding videos to a personal playlist by matching keywords in the original playlist.
 
 ## Installing Dependencies
-`pip install google-api-python-client` \
-`pip install --upgrade google-api-python-client google-auth-oauthlib google-auth-httplib2`
+`$ pip install google-api-python-client` \
+`$ pip install --upgrade google-api-python-client google-auth-oauthlib google-auth-httplib2`
 
 ## Set-up and credentials
 1.Create or select a project in the [API Console](https://console.cloud.google.com/) 
@@ -20,8 +20,8 @@ API v3. Click into the listing for that API and make sure the API is enabled for
   credentials for requests that require user authorization.
   
   * copy the the API key.\
-  `echo 'export YT_API_KEY="YOUR_API_KEY"' >> ~/.bashrc ` 
-  `source ~/.bashrc`
+  `$ echo 'export YT_API_KEY="YOUR_API_KEY"' >> ~/.bashrc ` \
+  `$ source ~/.bashrc`
 
   * Download the JSON file that contains your OAuth 2.0 credentials and rename it as `credentials.json`.
   Move the file to this repository.

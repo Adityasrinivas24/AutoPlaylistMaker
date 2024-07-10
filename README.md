@@ -27,6 +27,8 @@ API v3. Click into the listing for that API and make sure the API is enabled for
   Move the file to this repository.
 
 ## Note
+  * OAuth client ID requires the localhost URI `http://localhost:8080/`added in the OAuth panel.
+  * If there are errors with conversion, delete pickle file. 
   * OAuth Consent screen might require additional permissions and the redirect URI, which can be added in the appropriate Client ID
    details.
 

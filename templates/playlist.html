@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block title %}AutoPlaylister{% endblock %}
+
+{% block content %}
+
+
+<h1>AutoPlaylistMaker</h1>
+
+<form method = "POST", action = "/playlist">
+<div class="mb-3">
+  <h3>Enter the YouTube Playlist URL</h3>
+  <input type="text" class="form-control" id="input1" name="input1" required>
+</div>
+<div class="mb-3">
+  <h3>Enter Your Personal Unlisted YouTube Playlist URL</h3>
+  <input type="text" class="form-control" id="input1" name="input2" required>
+</div>
+<div class="mb-3"> 
+  <h3>Enter Keywords from the Video description or title</h3>
+  <input type="text" class="form-control" id="input1" name="input3" required>
+</div>
+<input type="submit" value="Go!">
+</form>
+
+{% if result is not none %}
+<h2>Done!</h2>
+
+{% else %}
+<h2>HTTP Error</h2>
+
+{% endif %}
+
+
+{% endblock %}
+
